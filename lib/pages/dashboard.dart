@@ -1,23 +1,37 @@
+import 'package:btm_navigation_with_fab/pages/card_dashboard.dart';
+import 'package:btm_navigation_with_fab/presentation/font_awesome5_icons.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
+  const Dashboard({super.key});
+
   @override
   State createState() => _DashboardState();
 }
 
 class _DashboardState extends State<Dashboard> {
+  int _index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard'),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        title: const Text(
+          'Amikom One',
+          style: TextStyle(
+            color: Colors.black87,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: RefreshIndicator(
         onRefresh: () async {
           debugPrint('Refresh');
         },
         child: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: Column(
@@ -27,52 +41,51 @@ class _DashboardState extends State<Dashboard> {
                   margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
                   alignment: Alignment.center,
                   height: 110,
-                  child: Card(
-                      child: Padding(
-                    padding: const EdgeInsets.all(14.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const <Widget>[
-                            Text(
-                              'Halo, Wahyu Dwi Hartarto',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              '20.11.3356',
-                            )
-                          ],
+                  child: const CardDashboard(),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(14.0, 14.0, 0.0, 0.0),
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const <Widget>[
+                      Text(
+                        'Jadwal Kuliah',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          // fontFamily: 'Roboto',
                         ),
-                        Container(
-                          margin: const EdgeInsets.all(4.0),
-                          width: 60.0,
-                          height: 60.0,
-                          child: CircleAvatar(
-                            backgroundColor: Colors.transparent,
-                            radius: 10.0,
-                            child: ClipOval(
-                              child: Image.asset(
-                                'assets/profile.jpg',
-                                fit: BoxFit.cover,
-                                width: 60,
-                                height: 60,
+                      ),
+                    ],
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
+                    height: 150,
+                    child: PageView.builder(
+                      itemCount: 4,
+                      controller: PageController(viewportFraction: 0.7),
+                      onPageChanged: (int index) =>
+                          setState(() => _index = index),
+                      itemBuilder: (_, i) {
+                        return Transform.scale(
+                          scale: i == _index ? 1 : 0.95,
+                          // change space between card
+                          child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
                               ),
-                            ),
-                          ),
-                        )
-                      ],
+                              child: Center(
+                                  child: Text(
+                                "Card ${i + 1}",
+                                style: const TextStyle(fontSize: 32),
+                              ))),
+                        );
+                      },
                     ),
-                  )),
+                  ),
                 ),
               ],
             ),
