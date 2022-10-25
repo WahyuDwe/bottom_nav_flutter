@@ -41,6 +41,10 @@ dependencies:
 
   community_material_icon: ^5.4.55
 
+  flutter_swiper_null_safety: ^1.0.2
+
+  flutter_svg: ^1.1.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -66,6 +70,14 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/profile.jpg
+    - assets/food.jpg
+    - assets/ic_khs.svg
+    - assets/ic_schedule.svg
+    - assets/ic_transcript.svg
+    - assets/ic_library.svg
+    - assets/ic_payment.svg
+    - assets/ic_ktm.svg
+    - assets/ic_support.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

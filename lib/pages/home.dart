@@ -1,4 +1,4 @@
-import 'package:btm_navigation_with_fab/pages/dashboard.dart';
+import 'package:btm_navigation_with_fab/pages/dashboard/dashboard.dart';
 import 'package:btm_navigation_with_fab/pages/profile.dart';
 import 'package:btm_navigation_with_fab/pages/setting.dart';
 import 'package:btm_navigation_with_fab/presentation/font_awesome5_icons.dart';
@@ -11,6 +11,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'chat.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   State createState() => _HomeState();
 }
@@ -40,11 +42,11 @@ class _HomeState extends State<Home> {
         child: FittedBox(
           child: FloatingActionButton(
             onPressed: () {},
+            backgroundColor: Colors.deepPurple,
             child: const Icon(
               FontAwesome4.qrcode,
               size: 30,
             ),
-            backgroundColor: Colors.deepPurple,
           ),
         ),
       ),
