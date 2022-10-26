@@ -29,7 +29,7 @@ class _ListCardState extends State<ListCard> {
               semanticContainer: true,
               clipBehavior: Clip.antiAliasWithSaveLayer,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.0),
               ),
               child: Image.network(
                 'https://placeimg.com/640/480/animals',

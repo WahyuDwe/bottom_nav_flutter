@@ -13,6 +13,9 @@ class _CardDashboardState extends State<CardDashboard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
       elevation: 5.0,
       child: Padding(
         padding: const EdgeInsets.all(14.0),
